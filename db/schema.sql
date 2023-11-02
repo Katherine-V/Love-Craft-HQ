@@ -1,3 +1,4 @@
+
 CREATE DATABASE event_management;
 
 USE event_management;
@@ -45,3 +46,4 @@ CREATE TABLE events (
   location VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
 );
+
