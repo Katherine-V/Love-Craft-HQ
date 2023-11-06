@@ -1,6 +1,8 @@
 const User = require('./User');
 const EventManager = require('./EventManager');
 const Vendor = require('./Vendor');
+const Event = require('./Event'); 
+const VendorEvent = require('./VendorEvent');
 
 // Assume that a User can be an EventManager or a Vendor, but not both.
 // And an EventManager can have multiple Vendors.
@@ -32,4 +34,21 @@ Vendor.belongsTo(EventManager, {
   foreignKey: 'event_manager_id',
 });
 
-module.exports = { User, EventManager, Vendor };
+// Event Model associations
+Event.hasMany(VendorEvent, {
+  foreignKey: 'event_id',
+});
+
+VendorEvent.belongsTo(Event, {
+  foreignKey: 'event_id',
+});
+
+Vendor.hasMany(VendorEvent, {
+  foreignKey: 'vendor_id',
+});
+
+VendorEvent.belongsTo(Vendor, {
+  foreignKey: 'vendor_id',
+});
+
+module.exports = { User, EventManager, Vendor, VendorEvent, Event};

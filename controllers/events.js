@@ -1,6 +1,6 @@
 const db = require('../models');
 const { Event } = db;
-const VendorEvent = require('../models/vendorEvent');
+const VendorEvent = require('../models/VendorEvent');
 
 const createEvent = async (req, res) => {
   const { name, description, date, time, location } = req.body;
@@ -31,6 +31,25 @@ const getAllEvents = async (req, res) => {
     res.status(500).json({ error: 'Failed to retrieve events' });
   }
 };
+
+const getEventById = (req, res) => {
+    const eventId = req.params.id;
+  
+    db.Event.findOne({
+      where: { id: eventId },
+    })
+      .then((event) => {
+        if (!event) {
+          res.status(404).json({ message: 'Event not found' });
+          return;
+        }
+        res.json(event);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to retrieve the event' });
+      });
+  };
 
 const updateEvent = async (req, res) => {
   const eventId = req.params.id; 
@@ -83,6 +102,7 @@ const vendorSignUp = async (req, res) => {
 module.exports = {
   createEvent,
   getAllEvents,
+  getEventById,
   updateEvent,
   deleteEvent,
   vendorSignUp,

@@ -15,7 +15,7 @@ VendorEvent.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Vendor',
+        model: 'vendors',
         key: 'id',
       },
     },
@@ -23,7 +23,7 @@ VendorEvent.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Event',
+        model: 'events',
         key: 'id',
       },
     },

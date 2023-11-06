@@ -2,10 +2,16 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 
 let sequelizeInstance;
+console.log('DB_NAME:', process.env.DB_NAME);
+console.log('DB_USER:', process.env.DB_USER);
+console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
 
 if (process.env.JAWSDB_URL) {
+  console.log('1');
+
   sequelizeInstance = new Sequelize(process.env.JAWSDB_URL);
 } else {
+  console.log('2');
   sequelizeInstance = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
     host: 'localhost',
     dialect: 'mysql',

@@ -9,6 +9,9 @@ router.post('/events', eventController.createEvent);
 // API route for retrieving a list of events
 router.get('/events', eventController.getAllEvents);
 
+// API route for retrieving a specific event by its ID
+router.get('/events/:id', eventController.getEventById);
+
 // API route for updating an existing event
 router.put('/events/:id', eventController.updateEvent);
 
