@@ -1,8 +1,7 @@
 const sequelize = require('../config/connection');
-const seedOrganizers = require('./organizerSeeds');
+const seedOrganizers = require('./eventManagerSeeds');
 const seedVendors = require('./vendorSeeds');
 const seedEvents = require('./eventSeeds');
-const seedOrganizerEvents = require('./organizerEventSeeds');
 const seedVendorEvents = require('./vendorEventSeeds');
 
 const seedAll = async () => {
@@ -11,7 +10,6 @@ const seedAll = async () => {
   await seedOrganizers();
   await seedVendors();
   await seedEvents();
-  await seedOrganizerEvents();
   await seedVendorEvents();
 
   console.log('\n----- DATA SEEDED -----\n');

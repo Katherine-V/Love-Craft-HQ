@@ -1,5 +1,5 @@
 const express = require('express');
-const eventController = require('../controllers/events'); // Import your event controller
+const eventController = require('../controllers/events');
 
 const router = express.Router();
 
