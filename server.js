@@ -31,7 +31,7 @@ app.use(session(sess));
 // turn on routes
 app.use(routes);
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // turn on connection to db and server

@@ -1,0 +1,11 @@
+<h1>All Events</h1>
+<ul>
+    {{#each events}}
+    <li>
+        <strong>{{name}}</strong> - {{date}}, {{location}}
+        <a href="/events/view/{{id}}">View Details</a>
+    </li>
+    {{/each}}
+</ul>
+
+<!-- http://localhost:3001/events/view to access-->
