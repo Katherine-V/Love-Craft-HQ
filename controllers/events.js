@@ -21,6 +21,7 @@ const createEvent = async (req, res) => {
   }
 };
 
+// THIS FUNCTION IS NO LONGER USED 
 const getAllEvents = async (req, res) => {
   try {
     const events = await Event.findAll();
