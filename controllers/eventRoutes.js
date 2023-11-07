@@ -57,6 +57,12 @@ router.get('/organizer/landing', (req, res) => {
     res.render('organizerLanding'); 
 });
 
+// Route to render the vendor landing page
+router.get('/vendor/landing', (req, res) => {
+    // Assuming you have a 'vendorLanding' Handlebars template
+    res.render('vendorLanding', { title: 'Vendor Dashboard' });
+});
+
 // Route to render the event creation page
 router.get('/create', (req, res) => {
     console.log("hello");
