@@ -4,20 +4,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../../public/styles.css"> 
+    <script src="https://cdn.tailwindcss.com"></script>
   <title>{{title}}</title>
 
+  <!-- Include Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <h1>Love Craft HQ</h1>
-    <nav>
-      <!-- Add navigation links here -->
-    </nav>
-  </header>
-  <main>
+<body class="bg-gray-100 font-sans flex flex-col min-h-screen">
+   <div class="bg-purple-600 p-4 text-white text-center">
+        <a href="/"><h1 class="text-4xl font-bold uppercase">Love-Craft HQ</h1></a>
+    </div>
+  <main class="container mx-auto py-6 flex-grow">
     {{{body}}}
   </main>
-  <footer>
+  <footer class="bg-gray-800 text-white text-center py-2">
     <p>&copy; 2023 Love Craft HQ</p>
   </footer>
 </body>

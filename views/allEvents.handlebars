@@ -1,11 +1,16 @@
-<h1>All Events</h1>
-<ul>
-    {{#each events}}
-    <li>
-        <strong>{{name}}</strong> - {{date}}, {{location}}
-        <a href="/events/view/{{id}}">View Details</a>
-    </li>
-    {{/each}}
+<div class="flex justify-center mt-6">
+  <h2 class="text-2xl font-bold uppercase">All Events</h2>
+</div>
+<ul class="mt-4 space-y-4">
+  {{#each events}}
+  <li class="bg-white shadow-md p-4 rounded-lg">
+    <div class="flex justify-between items-center">
+      <strong class="text-lg">{{name}}</strong>
+      <a href="/events/view/{{id}}" class="bg-purple-600 text-white py-2 px-4 rounded-full hover:bg-purple-700">View Details</a>
+    </div>
+    <p class="text-gray-600 text-sm mt-2">{{date}}, {{location}}</p>
+  </li>
+  {{/each}}
 </ul>
 
 <!-- http://localhost:3001/events/view to access-->

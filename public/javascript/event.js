@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.ok) {
                 alert('Event created successfully');
-                // Put Redirct under this
+                window.location.href = 'organizer/landing';
             } else {
                 const data = await response.json();
                 alert('Event creation failed: ' + data.error);

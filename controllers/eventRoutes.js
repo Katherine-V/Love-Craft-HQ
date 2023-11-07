@@ -35,6 +35,7 @@ router.get('/view', async (req, res) => {
     }
 });
 
+// Route to render specific event page
 router.get('/view/:id', async (req, res) => {
     const eventId = req.params.id;
 
@@ -49,6 +50,23 @@ router.get('/view/:id', async (req, res) => {
         console.error(error);
         res.status(500).json({ error: 'Failed to retrieve the event' });
     }
+});
+
+// Route to render the organizer landing page
+router.get('/organizer/landing', (req, res) => {
+    res.render('organizerLanding'); 
+});
+
+// Route to render the vendor landing page
+router.get('/vendor/landing', (req, res) => {
+    // Assuming you have a 'vendorLanding' Handlebars template
+    res.render('vendorLanding', { title: 'Vendor Dashboard' });
+});
+
+// Route to render the event creation page
+router.get('/create', (req, res) => {
+    console.log("hello");
+    res.render('eventCreation'); 
 });
 
 module.exports = router;
