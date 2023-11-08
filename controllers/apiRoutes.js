@@ -65,5 +65,14 @@ router.post('/login/vendor', async (req, res) => {
   }
 });
 
+router.post('/signout', (req, res) => {
+  console.log("Test");
+  if (req.session.logged_in){
+    req.session.destroy(()=>{
+      res.status(204).end();
+    });
+  }
+})
+
 
 module.exports = router;
