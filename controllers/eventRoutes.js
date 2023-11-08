@@ -29,7 +29,7 @@ router.get('/view', async (req, res) => {
         const events = await db.Event.findAll();
         const plainEvents = events.map(event => event.get({ plain: true }));
 
-        res.render('allEvents', { events: plainEvents });
+        res.render('allEvents', { events: plainEvents, logged_in: req.session.logged_in});
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Failed to retrieve events' });
@@ -43,7 +43,7 @@ router.get('/view/:id', async (req, res) => {
     try {
         const event = await db.Event.findByPk(eventId);
         if (event) {
-            res.render('eventDetails', { event: event.get({ plain: true }) });
+            res.render('eventDetails', { event: event.get({ plain: true }), logged_in: req.session.logged_in});
         } else {
             res.status(404).json({ message: 'Event not found' });
         }
@@ -55,19 +55,19 @@ router.get('/view/:id', async (req, res) => {
 
 // Route to render the organizer landing page
 router.get('/organizer/landing', withAuth, (req, res) => {
-    res.render('organizerLanding'); 
+    res.render('organizerLanding', {logged_in: req.session.logged_in}); 
 });
 
 // Route to render the vendor landing page
 router.get('/vendor/landing', (req, res) => {
     // Assuming you have a 'vendorLanding' Handlebars template
-    res.render('vendorLanding', { title: 'Vendor Dashboard' });
+    res.render('vendorLanding', { title: 'Vendor Dashboard' , logged_in: req.session.logged_in});
 });
 
 // Route to render the event creation page
 router.get('/create', (req, res) => {
     console.log("hello");
-    res.render('eventCreation'); 
+    res.render('eventCreation', {logged_in: req.session.logged_in}); 
 });
 
 module.exports = router;

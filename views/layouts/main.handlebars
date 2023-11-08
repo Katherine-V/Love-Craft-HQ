@@ -15,11 +15,18 @@
    <div class="bg-purple-600 p-4 text-white text-center">
         <a href="/"><h1 class="text-4xl font-bold uppercase">Love-Craft HQ</h1></a>
     </div>
+    {{#if logged_in}}
+      <button type="submit" id="signoutForm">Sign Out</button>
+    {{/if}}
   <main class="container mx-auto py-6 flex-grow">
     {{{body}}}
   </main>
   <footer class="bg-gray-800 text-white text-center py-2">
     <p>&copy; 2023 Love Craft HQ</p>
   </footer>
+  {{#if logged_in}}
+      <script src="/javascript/signout.js"></script>
+  {{/if}}
+
 </body>
 </html>
