@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="public/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/leaflet.umd.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v0.0.98/style.css" rel="stylesheet">    
+    <link rel="stylesheet" href="./Stylesheets/map.css">
+  <link rel="shortcut icon" type="image/x-icon" href="./Stylesheets/Untitled1.ico" />
+  <title>Market Manager</title>
+</head>
+
+<body class="bg-yellow-50">
+    <header>   
+        <div class="flex justify-center items-center">
+      <img class="h-auto  rounded-3xl  max-w-2xl m-3 border-red-400 border-8 text-center" src="./Stylesheets/love-kraft hq.jpg">
+       </div>
+       <div class="grid grid-cols-6 gap-4">
+      <h1 class="  col-start-3 col-span-2 border-red-400 border-8 rounded-3xl p-4 mt-2 text-center text-4xl">Vendors</h1>
+    </div>
+    </header>
+
+        <div class="grid grid-cols-6 gap-4">
+            <h1 class="col-start-2 col-span-4 border-red-400 border-8 rounded-3xl p-4 mt-2 text-center text-2xl">Upcoming Events in Your Area!</h1>
+        </div>
+
+        <div >
+            <h1 class="text-center pt-4 underline text-2xl">Search for Your Location Below</h1>
+   
+        <div id="map" class="rounded-2xl ">
+            <script>
+              const key = 'aGSZbOQNCQmu7csqUaaH';
+              const map = L.map('map').setView([35.782169, -80.793457], 14);
+              L.tileLayer(`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${key}`,{
+                tileSize: 512,
+                zoomOffset: -1,
+                minZoom: 1,
+                attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
+                crossOrigin: true
+              }).addTo(map);
+            </script>
+        <script src="./Models/Vendors.js"></script>
+        </div>
+        <div class="text-center border-red-400 border-8 rounded-3xl m-4 bg-white">
+            <h1 class="bg-red-400 border-red-400  underline text-2xl pb-2">Events in Your Area:</h1>
+            <ul class="space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                <li><input placeholder="Event-1">
+                </li>
+                <li ><input placeholder="Event-2">
+                </li>
+                <li ><input placeholder="Event-3">
+                </li>
+                <li ><input placeholder="Event-4">
+                </li>
+                <li ><input placeholder="Event-5">
+                </li>
+            </ul>
+        </div>
+    </div>
+        </body>
+        </html>
