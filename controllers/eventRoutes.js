@@ -1,6 +1,7 @@
 const express = require('express');
 const eventController = require('../controllers/events');
 const db = require('../models');
+const withAuth = require('../utils/auth');
 
 const router = express.Router();
 
@@ -53,7 +54,7 @@ router.get('/view/:id', async (req, res) => {
 });
 
 // Route to render the organizer landing page
-router.get('/organizer/landing', (req, res) => {
+router.get('/organizer/landing', withAuth, (req, res) => {
     res.render('organizerLanding'); 
 });
 
